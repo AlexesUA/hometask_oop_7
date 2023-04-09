@@ -39,7 +39,7 @@ public class Corporation{
             }
 
         }catch (Exception error){
-            System.out.println(error.getMessage());
+            System.out.println("ERROR: " + error.getMessage());
         }
         return false;
     }

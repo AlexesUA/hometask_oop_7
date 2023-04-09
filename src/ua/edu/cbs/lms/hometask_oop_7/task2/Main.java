@@ -9,12 +9,14 @@ public class Main {
         Corporation corporation = new Corporation();
         char key;
         do{
-            System.out.println("Would you like enter the worker? (y/n): ");
-            key = scInput.next().toLowerCase().charAt(0);
+            System.out.print("Would you like enter the worker? (y/n): ");
+            key = scInput.nextLine().toLowerCase().charAt(0);
             while (!corporation.addWorker());
         }while (key != 'n');
 
-
+        corporation.printWorkerOfExperience(0);
+        System.out.println(" = = = = ");
+        corporation.printWorkerOfExperience(10);
 
 //        Соколова Анастасія Миколаївна
 //        Петренко Денис Олександрович

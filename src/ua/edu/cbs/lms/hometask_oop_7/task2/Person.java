@@ -7,7 +7,7 @@ public class Person implements Comparable<Person>{
     private String lastName;
     private String middleName;
 
-    public Person(String firstName, String lastName, String middleName){
+    public Person(String lastName, String firstName, String middleName){
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
@@ -51,7 +51,8 @@ public class Person implements Comparable<Person>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName) && Objects.equals(middleName, person.middleName);
+        return Objects.equals(firstName, person.firstName) && Objects.equals(lastName, person.lastName)
+                && Objects.equals(middleName, person.middleName);
     }
 
     @Override
