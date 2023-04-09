@@ -1,10 +1,13 @@
 package ua.edu.cbs.lms.hometask_oop_7.task2;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Corporation {
-    private List <Worker> workers;
+public class Corporation{
+    private List <Worker> workers = new ArrayList<>();
 
     public Corporation(){}
 
@@ -31,6 +34,7 @@ public class Corporation {
 
             if(tempWorker != null) {
                 workers.add(tempWorker);
+                sortWorkers();
                 return true;
             }
 
@@ -40,6 +44,15 @@ public class Corporation {
         return false;
     }
 
+    public void sortWorkers(){
+        Collections.sort(workers);
+    }
 
+    public void printWorkerOfExperience(int yearsExperience){
+        for(Worker worker:workers){
+            if(LocalDate.now().getYear() - worker.getYearStartingWork() > yearsExperience)
+                System.out.println(worker);
+        }
+    }
 
 }

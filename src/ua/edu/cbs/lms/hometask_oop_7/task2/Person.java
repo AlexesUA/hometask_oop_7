@@ -2,7 +2,7 @@ package ua.edu.cbs.lms.hometask_oop_7.task2;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person>{
     private String firstName;
     private String lastName;
     private String middleName;
@@ -38,8 +38,13 @@ public class Person {
 
     @Override
     public String toString() {
+        return String.format("%1$s %2$s %3$s",lastName, firstName, middleName);
+    }
+
+    public String getAbbreviation(){
         return String.format("%1$s %2$s. %3$s.",lastName, firstName.charAt(0), middleName.charAt(0));
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -52,5 +57,9 @@ public class Person {
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, middleName);
+    }
+    @Override
+    public int compareTo(Person worker) {
+        return this.toString().compareTo(worker.toString());
     }
 }

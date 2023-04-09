@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
-public class Worker {
+public class Worker implements Comparable<Worker>{
 
     private Person worker;
     private String position;
@@ -22,6 +22,22 @@ public class Worker {
             throw new Exception("Year start work not valid.");
 
         return new Worker(worker, position, yearStartingWork);
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public int getYearStartingWork() {
+        return yearStartingWork;
+    }
+
+    public void setYearStartingWork(int yearStartingWork) {
+        this.yearStartingWork = yearStartingWork;
     }
 
     @Override
@@ -42,4 +58,10 @@ public class Worker {
     public int hashCode() {
         return Objects.hash(worker, position, yearStartingWork);
     }
+
+    @Override
+    public int compareTo(Worker o) {
+        return this.worker.compareTo(o.worker);
+    }
+
 }
