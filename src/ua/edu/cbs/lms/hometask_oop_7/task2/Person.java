@@ -8,9 +8,9 @@ public class Person implements Comparable<Person>{
     private String middleName;
 
     public Person(String lastName, String firstName, String middleName){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.middleName = middleName;
+        setFirstName(firstName);
+        setLastName(lastName);
+        setMiddleName(middleName);
     }
     public String getFirstName() {
         return firstName;
@@ -25,7 +25,9 @@ public class Person implements Comparable<Person>{
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1).toLowerCase();
+        String temp1 = lastName.substring(0,1).toUpperCase();
+        String temp2 =lastName.substring(1).toLowerCase();
+                this.lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1).toLowerCase();
     }
 
     public String getMiddleName() {
