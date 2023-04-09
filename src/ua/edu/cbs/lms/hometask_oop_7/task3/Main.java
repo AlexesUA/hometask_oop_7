@@ -1,16 +1,12 @@
 package ua.edu.cbs.lms.hometask_oop_7.task3;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-
+        Scanner scInput = new Scanner(System.in);
 
         //List<Price> priceList = new ArrayList<>();
-
         //priceList.
 
         Set<Price> priceSet = new TreeSet<>();
@@ -25,5 +21,24 @@ public class Main {
         for (Price price:priceSet){
             System.out.println(price);
         }
+
+
+
+        boolean key = true;
+        do {
+            System.out.print("Enter store name for print product: ");
+            try {
+                Shops shop = Shops.valueOf(scInput.next());
+                for (Price price:priceSet){
+                    if(price.getShop() == shop)
+                        System.out.println(price);
+
+                    key = false;
+                }
+            } catch (Exception error) {
+                ErrorsProcessing.errorsProcessing(error);
+                key = true;
+            }
+        }while (key);
     }
 }

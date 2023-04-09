@@ -35,19 +35,22 @@ public class Price implements Comparable{
         this.price = price;
     }
 
-
+    private String sort(){
+        return shop + product;
+    }
     @Override
     public String toString() {
-        return String.format("%1$s in store %2$s cost %3.2f uah.", product,shop,price);
+        return String.format("%1$s in store %2$s cost %3$.2f uah.", product,shop,price);
     }
 
     @Override
     public int compareTo(Object o) {
         try {
-            return this.shop.compareTo((Shops)o);
+            //return this.shop.compareTo(((Price)o).shop);
+            return this.sort().compareTo(((Price)o).sort());
         }
         catch (Exception error){
-            System.out.println("ERROR: " + error.getMessage());
+            ErrorsProcessing.errorsProcessing(error);
             return 0;
         }
     }
